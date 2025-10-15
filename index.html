@@ -545,6 +545,15 @@
             color: #333;
             margin-bottom: 2rem;
             font-size: 1.5rem;
+            background: white;
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            border: 3px solid;
+            border-image: linear-gradient(45deg, #2ECC71, #E74C3C, #667eea, #F39C12) 1;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .results-grid {
@@ -615,6 +624,47 @@
         .result-description {
             color: #666;
             font-size: 0.9rem;
+        }
+
+        /* Estilos específicos para o card de IMC */
+        .imc-card {
+            position: relative;
+        }
+
+        .send-results-btn {
+            background: linear-gradient(135deg, #2ECC71, #27AE60);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin: 1rem auto 0.5rem;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+        }
+
+        .send-results-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
+        }
+
+        .payment-message {
+            font-size: 0.8rem;
+            color: #E74C3C;
+            text-align: center;
+            margin-top: 0.5rem;
+            font-weight: 600;
+            background: rgba(231, 76, 60, 0.1);
+            padding: 0.5rem;
+            border-radius: 10px;
+            border: 1px solid rgba(231, 76, 60, 0.2);
         }
 
         /* Chamada Final */
@@ -1038,7 +1088,7 @@
                 <div class="results-section" id="results" style="display: none;">
                     <h3>Resultados</h3>
                     <div class="results-grid">
-                        <div class="result-card">
+                        <div class="result-card imc-card">
                             <div class="result-icon imc-icon">
                                 <i class="fas fa-weight"></i>
                             </div>
@@ -1046,6 +1096,13 @@
                                 <h4>Seu IMC</h4>
                                 <div class="result-value" id="imc-value">24.2</div>
                                 <div class="result-status" id="imc-status">Peso normal</div>
+                                <button class="send-results-btn" onclick="enviarResultados()">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Enviar resultados a Nicolas
+                                </button>
+                                <p class="payment-message">
+                                    Resultados serão enviados após o pagamento do Protocolo Start
+                                </p>
                             </div>
                         </div>
                         
@@ -1229,6 +1286,14 @@
             // Mostrar seção de resultados
             document.getElementById('results').style.display = 'block';
             document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Função para enviar resultados a Nicolas
+        function enviarResultados() {
+            alert('Para enviar seus resultados ao Nicolas Lemos, você precisa primeiro adquirir o Protocolo Start. Clique em "Quero iniciar o Protocolo Start agora" para começar sua transformação!');
+            
+            // Scroll para a seção de inscrição
+            document.getElementById('inscrever').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 
