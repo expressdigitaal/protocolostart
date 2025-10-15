@@ -501,6 +501,8 @@
             font-size: 1rem;
             background: rgba(255, 255, 255, 0.9);
             transition: all 0.3s ease;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .form-group input:focus,
@@ -814,6 +816,37 @@
                 grid-column: 1;
             }
 
+        .form-group select {
+            font-size: 0.9rem;
+            padding: 0.8rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+        }
+
+        .form-group select option {
+            font-size: 0.9rem;
+            padding: 0.5rem;
+            white-space: normal;
+            word-wrap: break-word;
+        }
+
+        /* CSS específico para mobile */
+        @media (max-width: 480px) {
+            .form-group select {
+                font-size: 0.85rem;
+                padding: 0.7rem;
+            }
+            
+            .form-group select option {
+                font-size: 0.85rem;
+                padding: 0.4rem;
+            }
+        }
+
             .testimonials-carousel {
                 grid-template-columns: 1fr;
             }
@@ -1079,11 +1112,11 @@
                         <div class="form-group full-width">
                             <label for="atividade">Nível de Atividade</label>
                             <select id="atividade" required>
-                                <option value="sedentario">Sedentário (pouco ou nenhum exercício)</option>
-                                <option value="leve">Levemente ativo (exercício leve 1-3x/semana)</option>
-                                <option value="moderado">Moderadamente ativo (exercício moderado 3-5x/semana)</option>
-                                <option value="intenso">Muito ativo (exercício intenso 6-7x/semana)</option>
-                                <option value="extremo">Extremamente ativo (exercício muito intenso, trabalho físico)</option>
+                                <option value="sedentario">Sedentário (pouco exercício)</option>
+                                <option value="leve">Levemente ativo (1-3x/semana)</option>
+                                <option value="moderado">Moderadamente ativo (3-5x/semana)</option>
+                                <option value="intenso">Muito ativo (6-7x/semana)</option>
+                                <option value="extremo">Extremamente ativo (trabalho físico)</option>
                             </select>
                         </div>
                     </div>
