@@ -307,9 +307,12 @@
 
         .before-after-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
             margin-top: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .before-after-item {
@@ -328,6 +331,7 @@
             width: 100%;
             height: 300px;
             object-fit: cover;
+            object-position: center top;
         }
 
         .before-after-text {
@@ -433,41 +437,176 @@
             color: #666;
         }
 
-        /* Benefícios */
-        .benefits {
+        /* Avaliação com o Coach */
+        .evaluation {
             padding: 6rem 0;
-            background: white;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
         }
 
-        .benefits-grid {
+        .evaluation-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .evaluation-form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .evaluation-form {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .form-row {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
-        .benefit {
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.3);
+        }
+
+        .calculate-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #2ECC71, #27AE60);
+            color: white;
+            padding: 1.2rem 2rem;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            padding: 1.5rem;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(46, 204, 113, 0.4);
+        }
+
+        .results-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .results-section h3 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .result-card {
             background: #f8f9fa;
+            padding: 1.5rem;
             border-radius: 15px;
+            text-align: center;
             transition: transform 0.3s ease;
         }
 
-        .benefit:hover {
-            transform: translateX(10px);
+        .result-card:hover {
+            transform: translateY(-5px);
         }
 
-        .benefit-icon {
-            font-size: 2rem;
-            color: #2ECC71;
-            margin-right: 1rem;
+        .result-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            color: white;
         }
 
-        .benefit-text {
-            font-weight: 500;
+        .imc-icon {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .calories-icon {
+            background: linear-gradient(135deg, #2ECC71, #27AE60);
+        }
+
+        .weight-loss-icon {
+            background: linear-gradient(135deg, #E74C3C, #C0392B);
+        }
+
+        .result-content h4 {
             color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .result-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-status {
+            background: #2ECC71;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .result-description {
+            color: #666;
+            font-size: 0.9rem;
         }
 
         /* Chamada Final */
@@ -586,6 +725,11 @@
             }
 
             .before-after-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+
+            .form-row {
                 grid-template-columns: 1fr;
             }
 
@@ -815,52 +959,100 @@
         </div>
     </section>
 
-    <!-- Benefícios -->
-    <section class="benefits">
+    <!-- Avaliação com o Coach -->
+    <section class="evaluation">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Por que o Protocolo Start funciona</h2>
+            <h2 class="section-title" data-aos="fade-up">Avaliação com o Coach Nicolas Lemos</h2>
+            <p class="evaluation-subtitle" data-aos="fade-up" data-aos-delay="100">
+                Informe seus dados e receba uma análise personalizada com base nos princípios do Protocolo Start — o método que já mudou a vida de centenas de pessoas.
+            </p>
             
-            <div class="benefits-grid">
-                <div class="benefit" data-aos="fade-right" data-aos-delay="100">
-                    <div class="benefit-icon">
-                        <i class="fas fa-user-friends"></i>
+            <div class="evaluation-form-container" data-aos="fade-up" data-aos-delay="200">
+                <div class="evaluation-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="peso">Peso Atual (kg)</label>
+                            <input type="number" id="peso" placeholder="70" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="altura">Altura (cm)</label>
+                            <input type="number" id="altura" placeholder="170" required>
+                        </div>
                     </div>
-                    <div class="benefit-text">Acesso direto ao coach Nicolas Lemos</div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="idade">Idade</label>
+                            <input type="number" id="idade" placeholder="25" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="genero">Gênero</label>
+                            <select id="genero" required>
+                                <option value="masculino">Masculino</option>
+                                <option value="feminino">Feminino</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="atividade">Nível de Atividade</label>
+                            <select id="atividade" required>
+                                <option value="sedentario">Sedentário (pouco ou nenhum exercício)</option>
+                                <option value="leve">Levemente ativo (exercício leve 1-3x/semana)</option>
+                                <option value="moderado">Moderadamente ativo (exercício moderado 3-5x/semana)</option>
+                                <option value="intenso">Muito ativo (exercício intenso 6-7x/semana)</option>
+                                <option value="extremo">Extremamente ativo (exercício muito intenso, trabalho físico)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="peso-desejado">Peso Desejado (kg)</label>
+                            <input type="number" id="peso-desejado" placeholder="65" required>
+                        </div>
+                    </div>
+                    
+                    <button class="calculate-btn" onclick="calcularAvaliacao()">
+                        <i class="fas fa-calculator"></i>
+                        Calcular Tudo
+                    </button>
                 </div>
                 
-                <div class="benefit" data-aos="fade-right" data-aos-delay="200">
-                    <div class="benefit-icon">
-                        <i class="fas fa-dumbbell"></i>
+                <div class="results-section" id="results" style="display: none;">
+                    <h3>Resultados</h3>
+                    <div class="results-grid">
+                        <div class="result-card">
+                            <div class="result-icon imc-icon">
+                                <i class="fas fa-weight"></i>
+                            </div>
+                            <div class="result-content">
+                                <h4>Seu IMC</h4>
+                                <div class="result-value" id="imc-value">24.2</div>
+                                <div class="result-status" id="imc-status">Peso normal</div>
+                            </div>
+                        </div>
+                        
+                        <div class="result-card">
+                            <div class="result-icon calories-icon">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <div class="result-content">
+                                <h4>Calorias Diárias</h4>
+                                <div class="result-value" id="calories-value">1971</div>
+                                <div class="result-description">para manter o peso</div>
+                            </div>
+                        </div>
+                        
+                        <div class="result-card">
+                            <div class="result-icon weight-loss-icon">
+                                <i class="fas fa-chart-line-down"></i>
+                            </div>
+                            <div class="result-content">
+                                <h4>Para Emagrecer</h4>
+                                <div class="result-value" id="weight-loss-value">1471</div>
+                                <div class="result-description">calorias por dia</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="benefit-text">Treinos personalizados para seu perfil</div>
-                </div>
-                
-                <div class="benefit" data-aos="fade-right" data-aos-delay="300">
-                    <div class="benefit-icon">
-                        <i class="fas fa-utensils"></i>
-                    </div>
-                    <div class="benefit-text">Plano alimentar sem restrições extremas</div>
-                </div>
-                
-                <div class="benefit" data-aos="fade-right" data-aos-delay="400">
-                    <div class="benefit-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="benefit-text">Grupo de suporte motivacional exclusivo</div>
-                </div>
-                
-                <div class="benefit" data-aos="fade-right" data-aos-delay="500">
-                    <div class="benefit-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="benefit-text">Resultados perceptíveis em poucas semanas</div>
-                </div>
-                
-                <div class="benefit" data-aos="fade-right" data-aos-delay="600">
-                    <div class="benefit-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <div class="benefit-text">Garantia de satisfação de 30 dias</div>
                 </div>
             </div>
         </div>
@@ -958,6 +1150,68 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'GA_MEASUREMENT_ID');
+
+        // Função para calcular avaliação
+        function calcularAvaliacao() {
+            const peso = parseFloat(document.getElementById('peso').value);
+            const altura = parseFloat(document.getElementById('altura').value);
+            const idade = parseInt(document.getElementById('idade').value);
+            const genero = document.getElementById('genero').value;
+            const atividade = document.getElementById('atividade').value;
+            const pesoDesejado = parseFloat(document.getElementById('peso-desejado').value);
+
+            if (!peso || !altura || !idade || !pesoDesejado) {
+                alert('Por favor, preencha todos os campos obrigatórios.');
+                return;
+            }
+
+            // Calcular IMC
+            const alturaMetros = altura / 100;
+            const imc = peso / (alturaMetros * alturaMetros);
+            
+            // Determinar status do IMC
+            let imcStatus = '';
+            if (imc < 18.5) {
+                imcStatus = 'Abaixo do peso';
+            } else if (imc < 25) {
+                imcStatus = 'Peso normal';
+            } else if (imc < 30) {
+                imcStatus = 'Sobrepeso';
+            } else {
+                imcStatus = 'Obesidade';
+            }
+
+            // Calcular TMB (Taxa Metabólica Basal)
+            let tmb;
+            if (genero === 'masculino') {
+                tmb = 88.362 + (13.397 * peso) + (4.799 * altura) - (5.677 * idade);
+            } else {
+                tmb = 447.593 + (9.247 * peso) + (3.098 * altura) - (4.330 * idade);
+            }
+
+            // Fator de atividade
+            const fatoresAtividade = {
+                'sedentario': 1.2,
+                'leve': 1.375,
+                'moderado': 1.55,
+                'intenso': 1.725,
+                'extremo': 1.9
+            };
+
+            const fatorAtividade = fatoresAtividade[atividade];
+            const caloriasManter = Math.round(tmb * fatorAtividade);
+            const caloriasEmagrecer = Math.round(caloriasManter - 500); // Déficit de 500 calorias
+
+            // Exibir resultados
+            document.getElementById('imc-value').textContent = imc.toFixed(1);
+            document.getElementById('imc-status').textContent = imcStatus;
+            document.getElementById('calories-value').textContent = caloriasManter;
+            document.getElementById('weight-loss-value').textContent = caloriasEmagrecer;
+
+            // Mostrar seção de resultados
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+        }
     </script>
 
     <!-- Google Analytics -->
