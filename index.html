@@ -329,9 +329,9 @@
 
         .before-after-item img {
             width: 100%;
-            height: 300px;
-            object-fit: cover;
-            object-position: center top;
+            height: auto;
+            object-fit: contain;
+            object-position: center;
         }
 
         .before-after-text {
@@ -473,9 +473,17 @@
             margin-bottom: 1.5rem;
         }
 
+        .form-row:last-child {
+            grid-template-columns: 1fr 1fr;
+        }
+
         .form-group {
             display: flex;
             flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
         }
 
         .form-group label {
@@ -731,6 +739,10 @@
 
             .form-row {
                 grid-template-columns: 1fr;
+            }
+
+            .form-group.full-width {
+                grid-column: 1;
             }
 
             .testimonials-carousel {
@@ -995,7 +1007,7 @@
                     </div>
                     
                     <div class="form-row">
-                        <div class="form-group">
+                        <div class="form-group full-width">
                             <label for="atividade">Nível de Atividade</label>
                             <select id="atividade" required>
                                 <option value="sedentario">Sedentário (pouco ou nenhum exercício)</option>
@@ -1005,9 +1017,15 @@
                                 <option value="extremo">Extremamente ativo (exercício muito intenso, trabalho físico)</option>
                             </select>
                         </div>
+                    </div>
+                    
+                    <div class="form-row">
                         <div class="form-group">
                             <label for="peso-desejado">Peso Desejado (kg)</label>
                             <input type="number" id="peso-desejado" placeholder="65" required>
+                        </div>
+                        <div class="form-group">
+                            <!-- Campo vazio para manter o layout -->
                         </div>
                     </div>
                     
